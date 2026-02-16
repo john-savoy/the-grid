@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { Orbitron, Space_Grotesk, Fira_Code } from "next/font/google";
 import "./globals.css";
+import Navigation from "@/components/layout/Navigation";
 
 // Custome fonts configurations
 const orbitron = Orbitron({
@@ -34,6 +35,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${orbitron.variable} ${spaceGrotesk.variable} ${firaCode.variable} antialiased`}>
+        <Navigation />
         {children}
       </body>
     </html>
