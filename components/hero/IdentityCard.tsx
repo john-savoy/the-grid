@@ -26,7 +26,7 @@ export default function IdentityCard({
         {showName && (
           <CardTypingLine
             text="JOHN SAVOY"
-            speed={100}
+            speed={80}
             onComplete={onNameComplete}
             className="font-display text-5xl text-cyan tracking-wider"
           />
@@ -36,7 +36,7 @@ export default function IdentityCard({
         {showRole && (
           <CardTypingLine
             text="FULL-STACK DEVELOPER"
-            speed={100}
+            speed={80}
             onComplete={onRoleComplete}
             className="font-display text-2xl text-ice tracking-wider"
           />
@@ -46,7 +46,7 @@ export default function IdentityCard({
         {showTagline && (
           <CardTypingLine
             text="CREATIVE PROBLEM SOLVER"
-            speed={100}
+            speed={80}
             onComplete={onTaglineComplete}
             className="font-display text-xl text-energy tracking-wide"
           />

@@ -31,9 +31,14 @@ export default function BootSequence() {
   useEffect(() => {
     const timer = setTimeout(() => {
       setShowSkip(true);
-    }, 2000);
+    }, 500);
     return () => clearTimeout(timer);
   }, []);
+
+  //DEBUG: Log bootState changes
+  useEffect(() => {
+    console.log("bootState changed to:", bootState);
+  }, [bootState]);
 
   // Handle skip
   const handleSkip = () => {
@@ -82,15 +87,15 @@ export default function BootSequence() {
             showTagline={bootState === "typing-tagline" || completedCardLines.includes("tagline")}
             onNameComplete={() => {
               setCompletedCardLines(prev => [...prev, "name"]);
-              setTimeout(() => setBootState("typing-role"), 2000);
+              setTimeout(() => setBootState("typing-role"), 500);
             }}
             onRoleComplete={() => {
               setCompletedCardLines(prev => [...prev, "role"]);
-              setTimeout(() => setBootState("typing-tagline"), 2000);
+              setTimeout(() => setBootState("typing-tagline"), 500);
             }}
             onTaglineComplete={() => {
               setCompletedCardLines(prev => [...prev, "tagline"]);
-              setTimeout(() => setBootState("status-operational"), 2000);
+              setTimeout(() => setBootState("status-operational"), 500);
             }}
           />
         </div>
@@ -101,12 +106,12 @@ export default function BootSequence() {
           {(bootState === "initializing" || visibleLines.includes("line1")) && (
             <TerminalText
               text="INITIALIZING GRID..."
-              speed={150}
+              speed={50}
               delay={500}
               showCursor={bootState === "initializing"}
               onComplete={() => {
                 showLine("line1");
-                setTimeout(() => setBootState("grid-online"), 2000);
+                setTimeout(() => setBootState("grid-online"), 500);
               }}
             />
           )}
@@ -115,11 +120,11 @@ export default function BootSequence() {
           {(bootState === "grid-online" || visibleLines.includes("line2")) && (
             <TerminalText
               text="GRID: ONLINE"
-              speed={150}
+              speed={50}
               showCursor={bootState === "grid-online"}
               onComplete={() => {
                 showLine("line2");
-                setTimeout(() => setBootState("loading-protocol"), 2000);
+                setTimeout(() => setBootState("loading-protocol"), 500);
               }}
             />
           )}
@@ -128,11 +133,11 @@ export default function BootSequence() {
           {(bootState === "loading-protocol" || visibleLines.includes("line3")) && (
             <TerminalText
               text="LOADING IDENTITY PROTOCOL..."
-              speed={150}
+              speed={50}
               showCursor={bootState === "loading-protocol"}
               onComplete={() => {
                 showLine("line3");
-                setTimeout(() => setBootState("scanning"), 2000);
+                setTimeout(() => setBootState("scanning"), 500);
               }}
             />
           )}
@@ -141,11 +146,11 @@ export default function BootSequence() {
           {(bootState === "scanning" || visibleLines.includes("line4")) && (
             <TerminalText
               text="SCANNING..."
-              speed={150}
+              speed={50}
               showCursor={bootState === "scanning"}
               onComplete={() => {
                 showLine("line4");
-                setTimeout(() => setBootState("identity-found"), 2000);
+                setTimeout(() => setBootState("identity-found"), 500);
               }}
             />
           )}
@@ -154,11 +159,11 @@ export default function BootSequence() {
           {(bootState === "identity-found" || visibleLines.includes("line5")) && (
             <TerminalText
               text="IDENTITY FOUND"
-              speed={150}
+              speed={50}
               showCursor={bootState === "identity-found"}
               onComplete={() => {
                 showLine("line5");
-                setTimeout(() => setBootState("typing-name"), 2000);
+                setTimeout(() => setBootState("typing-name"), 500);
               }}
             />
           )}
@@ -167,11 +172,11 @@ export default function BootSequence() {
           {(bootState === "status-operational" || visibleLines.includes("line6")) && (
             <TerminalText
               text="STATUS: OPERATIONAL"
-              speed={150}
+              speed={50}
               showCursor={bootState === "status-operational"}
               onComplete={() => {
                 showLine("line6");
-                setTimeout(() => setBootState("mission-statement"), 2000);
+                setTimeout(() => setBootState("mission-statement"), 500);
               }}
             />
           )}
@@ -180,11 +185,11 @@ export default function BootSequence() {
           {(bootState === "mission-statement" || visibleLines.includes("line7")) && (
             <TerminalText
               text='"Finding solutions where others see roadblocks. Building from every angle."'
-              speed={120}
+              speed={40}
               showCursor={bootState === "mission-statement"}
               onComplete={() => {
                 showLine("line7");
-                setTimeout(() => setBootState("ready-message"), 2000);
+                setTimeout(() => setBootState("ready-message"), 300);
               }}
             />
           )}
@@ -194,7 +199,7 @@ export default function BootSequence() {
                 <div className="space-y-1 pt-4">
                     <TerminalText
                         text="READY"
-                        speed={150}
+                        speed={50}
                         showCursor={false}
                         onComplete={() => {
                         showLine("line8");
@@ -207,10 +212,10 @@ export default function BootSequence() {
                 <div className="pt-1">
                     <TerminalText
                         text="AWAITING INPUT"
-                        speed={150}
+                        speed={50}
                         showCursor={false}
                         onComplete={() => {
-                        setTimeout(() => setBootState("ready"), 2000);
+                        setTimeout(() => setBootState("ready"), 500);
                         }}
                     />
                 </div>
