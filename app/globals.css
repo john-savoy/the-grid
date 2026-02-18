@@ -4,9 +4,9 @@
 /* Tron Design System */
 @theme {
   /* Colors */
-  --color-void: #0a0e27;
-  --color-void-light: #0d1b2a;
-  --color-void-dark: #1b263b;
+  --color-void: #000000;
+  --color-void-light: #0a0a0a;
+  --color-void-dark: #050505;
 
   --color-cyan: #00d9ff;
   --color-cyan-light: #4df3ff;
@@ -55,8 +55,8 @@
 
 /* Base Styles */
 body {
-  background-color: var(--color-void);
-  color: var(--color-ice);
+  background-color: #000000;
+  color: #e0f7ff;
   font-family: var(--font-body);
 }
 
