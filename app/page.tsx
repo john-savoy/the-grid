@@ -1,6 +1,7 @@
 import BootSequence from "@/components/hero/BootSequence";
 import AboutPreview from "@/components/hero/AboutPreview";
 import ProjectsSection from "@/components/projects/ProjectsSection";
+import ContactCTA from "@/components/contact/ContactCTA";
 
 export default function Home() {
   return (
@@ -8,6 +9,7 @@ export default function Home() {
       <BootSequence />
       <AboutPreview />
       <ProjectsSection />
+      <ContactCTA />
     </main>
   );
 }
