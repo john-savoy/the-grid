@@ -3,6 +3,7 @@ import { Orbitron, Space_Grotesk, Fira_Code } from "next/font/google";
 import "./globals.css";
 import Navigation from "@/components/layout/Navigation";
 import Footer from "@/components/layout/Footer";
+import GridBackground from "@/components/background/GridBackground";
 
 // Custome fonts configurations
 const orbitron = Orbitron({
@@ -36,6 +37,7 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body className={`${orbitron.variable} ${spaceGrotesk.variable} ${firaCode.variable} antialiased`}>
+        <GridBackground />
         <Navigation />
         {children}
         <Footer />
